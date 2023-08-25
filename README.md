@@ -13,8 +13,6 @@ RecursionCS( https://recursionist.io )で作ったBackend Projectの課題作品
 - duplicate-contents : ファイルの内容をn回複製して元のファイルに統合するコマンド。
 - replace-string : ファイルの全ての文字列を置換するコマンド。
 
-※実装途中のため、reverse以外はまだです。
-
 --- 
 
 ## 動作環境
@@ -64,9 +62,9 @@ inputpathにあるファイルの内容をnで指定された回数複製し、�
 #### replace-string
 
 inputpathにあるファイル全体の文字列を置換します。
-以下は一例です。
 
 例）ファイル全体の'needle'を'newstring'に置換する。
+
 ```plain
 > replace-string inputpath needle newstring
 ```
@@ -76,4 +74,4 @@ inputpathにあるファイル全体の文字列を置換します。
 ## 見てほしいところ
 
 - 課題要件ですが、引数の数が適正か判定するバリデーションを組み込んでいます。
-- シェルスクリプトの練習のため、簡単なテストスクリプトを自前で組んで行っています。
+- シェルスクリプトの練習のため、簡単なテストスクリプトを自前で組んで行っています。テストにより、ある程度の動作は保証されていると思います。
