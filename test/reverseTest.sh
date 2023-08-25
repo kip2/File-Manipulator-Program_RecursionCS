@@ -5,6 +5,7 @@ testEcho="""
         reverse aaa
         reverse aaa bbb
         reverse aaa bbb ccc
+        reverse ./reverse/input.txt ./reverse/output.txt
         "
 
 exitCommand="exit"

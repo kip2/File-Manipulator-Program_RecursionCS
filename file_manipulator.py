@@ -1,3 +1,5 @@
+import os
+
 def prologue():
     """
     file manipulatorの起動画面
@@ -27,9 +29,11 @@ def inputLoop():
         # 終了処理
         elif userInputArgs[0].lower() == "exit":
             return
+        # テストコード用
         elif userInputArgs[0].lower() == "test":
             testCommand(userInputArgs)
             return 
+        # 通常処理
         else:
             evalCommand(userInputArgs)
         
@@ -54,15 +58,29 @@ def reverse(args):
     Usage: reverse inputpath outputpath
     inputpathにあるファイルを受け取り、outputpathに、inputpathの内容を逆にした新しいファイルを作成
     """
+    # エラー処理
     if len(args) == 1:
         print("Error : インプットファイルとアウトプットパスが未入力です。")
         print("Usage : $ reverse inputpath outputpath")
+        return 
     elif len(args) == 2:
         print("Error : アウトプットパスが未入力です。")
         print("Usage : $ reverse inputpath outputpath")
+        return 
     elif len(args) > 3:
         print("Error : 引数が多すぎます。")
         print("Usage : $ reverse inputpath outputpath")
+        return 
+    
+    inputpathName = args[1]
+    outputpathName = args[2]
+
+    if os.path.isfile(inputpathName):
+        with open(inputpathName) as f:
+            print(f.read())
+    else:
+        print("インプットパスにファイルが存在しません。")
+    
         
 def testCommand(args):
     """
