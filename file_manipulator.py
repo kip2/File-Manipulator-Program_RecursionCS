@@ -7,9 +7,10 @@ def prologue():
     titleLogo = """
 ====================================
 ************************************
+
                 FILE
             MANIPULATOR
-                ver.1
+
 ************************************
 ====================================
 """
@@ -48,45 +49,12 @@ def evalCommand(args) :
         case "copy":
             copy(args)
         case "duplicate-contents":
-            print("duplicate-contents")
+            duplicateContents(args)
         case "replace-string":
             print("replace-string")
+        case _:
+            print("そのようなコマンドは存在しません。")
 
-def reverse(args):
-    """
-    reverse コマンド
-    Usage: reverse inputpath outputpath
-    inputpathにあるファイルを受け取り、outputpathに、inputpathの内容を逆にした新しいファイルを作成
-    """
-    # エラー処理
-    if len(args) == 1:
-        print("Error : インプットファイルとアウトプットパスが未入力です。")
-        print("Usage : $ reverse inputpath outputpath")
-        return 
-    elif len(args) == 2:
-        print("Error : アウトプットパスが未入力です。")
-        print("Usage : $ reverse inputpath outputpath")
-        return 
-    elif len(args) > 3:
-        print("Error : 引数が多すぎます。")
-        print("Usage : $ reverse inputpath outputpath")
-        return 
-    
-    inputpathName = args[1]
-    outputpathName = args[2]
-
-    if os.path.isfile(inputpathName):
-        # inputファイル読み込み
-        with open(inputpathName) as f:
-            contents = f.read()
-            writeContents = contents[::-1]
-        # outputパスにファイルを書き出す
-        with open(outputpathName, "w") as f:
-            f.write(writeContents)
-    else:
-        print("インプットパスにファイルが存在しません。")
-    
-        
 def testCommand(args):
     """
     コマンドのテスト用
@@ -104,24 +72,62 @@ def testCommand(args):
             evalCommand(userTestInputArgs)
 
 
+def reverse(args):
+    """
+    reverse コマンド
+    Usage: reverse inputpath outputpath
+    inputpathにあるファイルを受け取り、outputpathに、inputpathの内容を逆にした新しいファイルを作成
+    """
+    # 引数の数のエラー処理
+    usageCode = "$ reverse inputpath outputpath"
+    if len(args) == 1:
+        print("Error : インプットファイルとアウトプットパスが未入力です。")
+        print("Usage :", usageCode)
+        return 
+    elif len(args) == 2:
+        print("Error : アウトプットパスが未入力です。")
+        print("Usage :", usageCode)
+        return 
+    elif len(args) > 3:
+        print("Error : 引数が多すぎます。")
+        print("Usage :", usageCode)
+        return 
+    
+    inputpathName = args[1]
+    outputpathName = args[2]
+
+    if os.path.isfile(inputpathName):
+        # inputファイル読み込み
+        with open(inputpathName) as f:
+            contents = f.read()
+            writeContents = contents[::-1]
+        # outputパスにファイルを書き出す
+        with open(outputpathName, "w") as f:
+            f.write(writeContents)
+    else:
+        print("インプットパスにファイルが存在しません。")
+    
+        
+
 def copy(args):
     """
     copy コマンド
     Usage: copy inputpath outputpath
     inputpathになるファイルのコピーを作成し、outputpathとして保存する
     """
-    # エラー処理
+    # 引数の数のエラー処理
+    usageCode = "$ copy inputpath outputpath"
     if len(args) == 1:
         print("Error : インプットファイルとアウトプットパスが未入力です。")
-        print("Usage : $ copy inputpath outputpath")
+        print("Usage :", usageCode)
         return 
     elif len(args) == 2:
         print("Error : アウトプットパスが未入力です。")
-        print("Usage : $ copy inputpath outputpath")
+        print("Usage :", usageCode)
         return 
     elif len(args) > 3:
         print("Error : 引数が多すぎます。")
-        print("Usage : $ copy inputpath outputpath")
+        print("Usage :", usageCode)
         return 
     
     inputpathName = args[1]
@@ -131,19 +137,54 @@ def copy(args):
         # inputファイル読み込み
         with open(inputpathName) as f:
             writeContents = f.read()
-        # outputパスにファイルを書き出す
+        # outputパスにファイルを書き出す(コピー)
         with open(outputpathName, "w") as f:
             f.write(writeContents)
     else:
         print("インプットパスにファイルが存在しません。")
 
-def duplicateContents():
+def duplicateContents(args):
     """
     duplicate-contents コマンド
     Usage : duplicate-contents inputpath n
     inputpathにあるファイルの内容を読み込み、その内容を複製し、複製された内容をinputpathにn回繰り返して保存
     """
-    pass
+
+    # 引数の数のエラー処理
+    usageCode = "$ duplicate-contents inputpath n"
+    if len(args) == 1:
+        print("Error : インプットファイルとアウトプットパスが未入力です。")
+        print("Usage :", usageCode)
+        return 
+    elif len(args) == 2:
+        print("Error : アウトプットパスが未入力です。")
+        print("Usage :", usageCode)
+        return 
+    elif len(args) > 3:
+        print("Error : 引数が多すぎます。")
+        print("Usage :", usageCode)
+        return 
+
+    # 数字が指定されているかのエラー処理
+    if not args[2].isnumeric():
+        print("Error : 第2引数には数字を入力してください。")
+        print("Usage :", usageCode)
+        return
+
+    inputpathName = args[1]
+
+    n = int(args[2])
+
+    if os.path.isfile(inputpathName):
+        # inputファイル読み込み
+        with open(inputpathName) as f:
+            writeContents = f.read()
+        # inputパスにファイルの内容を複製する
+        with open(inputpathName, "a") as f:
+            for i in range(n):
+                f.write('\n'+writeContents)
+    else:
+        print("インプットパスにファイルが存在しません。")
 
 def replaceString():
     """
