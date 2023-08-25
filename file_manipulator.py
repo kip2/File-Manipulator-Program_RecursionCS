@@ -13,7 +13,6 @@ def prologue():
   ■■■■■ ■  ■ ■   ■                                               
   ■     ■  ■ ■■■■■                                               
   ■     ■  ■ ■                                                   
-  ■     ■  ■ ■   ■                                               
   ■     ■  ■  ■■■■                                               
                                                                  
   ■      ■                                                       
@@ -47,6 +46,9 @@ def inputLoop():
         # 終了処理
         elif userInputArgs[0].lower() == "exit":
             return
+        elif userInputArgs[0].lower() == "test":
+            testCommand(userInputArgs)
+            return 
         else:
             evalCommand(userInputArgs)
         
@@ -54,11 +56,10 @@ def evalCommand(args) :
     """
     インプットから得られたコマンドを処理する関数
     """
-
-    # 第1引数を評価し、各々のコマンドを実行する
+    # 第1引数のコマンドを評価し、コマンドを実行する
     match args[0]:
         case "reverse":
-            print("reverse")
+            reverse(args)
         case "copy":
             print("copy")
         case "duplicate-contents":
@@ -66,13 +67,34 @@ def evalCommand(args) :
         case "replace-string":
             print("replace-string")
 
-def reverse():
+def reverse(args):
     """
     reverse コマンド
     Usage: reverse inputpath outputpath
     inputpathにあるファイルを受け取り、outputpathに、inputpathの内容を逆にした新しいファイルを作成
     """
-    pass
+    if len(args) == 1:
+        print("Error : インプットファイルとアウトプットパスが未入力です。")
+        print("Usage : $ reverse inputpath outputpath")
+    elif len(args) == 2:
+        print("Error : アウトプットパスが未入力です。")
+        print("Usage : $ reverse inputpath outputpath")
+    elif len(args) > 3:
+        print("Error : 引数が多すぎます。")
+        print("Usage : $ reverse inputpath outputpath")
+        
+def testCommand(args):
+    # test用
+    print("******* test case **********")
+    while True:
+        userTestInputArgs = input().split()
+        print(">", " ".join(userTestInputArgs))
+        if userTestInputArgs[0].lower() == "exit":
+            return
+        else:
+            evalCommand(userTestInputArgs)
+
+        
 
 def copy():
     """

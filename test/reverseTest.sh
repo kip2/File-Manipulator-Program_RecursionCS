@@ -1,5 +1,11 @@
 #!/bin/bash
-testEcho="reverse\n"
+testEcho="""
+        test
+        reverse
+        reverse aaa
+        reverse aaa bbb
+        reverse aaa bbb ccc
+        "
 
 exitCommand="exit"
 
