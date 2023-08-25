@@ -40,3 +40,8 @@ if [ $? -eq 0 ]; then
 elif [ $? -eq 1 ]; then
     echo "違うファイルです。"
 fi
+
+rm $inputFile
+rm $inputFile2
+cp ./duplicate-contents/originalFile/input.txt ./duplicate-contents
+cp ./duplicate-contents/originalFile/input2.txt ./duplicate-contents
