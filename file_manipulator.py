@@ -102,7 +102,7 @@ def epilogue():
     """
     終了処理
     """
-    print("By!")
+    print("Bye!")
 
 if __name__ == "__main__":
     prologue()
