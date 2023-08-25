@@ -46,7 +46,7 @@ def evalCommand(args) :
         case "reverse":
             reverse(args)
         case "copy":
-            print("copy")
+            copy(args)
         case "duplicate-contents":
             print("duplicate-contents")
         case "replace-string":
@@ -104,13 +104,38 @@ def testCommand(args):
             evalCommand(userTestInputArgs)
 
 
-def copy():
+def copy(args):
     """
     copy コマンド
     Usage: copy inputpath outputpath
     inputpathになるファイルのコピーを作成し、outputpathとして保存する
     """
-    pass
+    # エラー処理
+    if len(args) == 1:
+        print("Error : インプットファイルとアウトプットパスが未入力です。")
+        print("Usage : $ copy inputpath outputpath")
+        return 
+    elif len(args) == 2:
+        print("Error : アウトプットパスが未入力です。")
+        print("Usage : $ copy inputpath outputpath")
+        return 
+    elif len(args) > 3:
+        print("Error : 引数が多すぎます。")
+        print("Usage : $ copy inputpath outputpath")
+        return 
+    
+    inputpathName = args[1]
+    outputpathName = args[2]
+
+    if os.path.isfile(inputpathName):
+        # inputファイル読み込み
+        with open(inputpathName) as f:
+            writeContents = f.read()
+        # outputパスにファイルを書き出す
+        with open(outputpathName, "w") as f:
+            f.write(writeContents)
+    else:
+        print("インプットパスにファイルが存在しません。")
 
 def duplicateContents():
     """

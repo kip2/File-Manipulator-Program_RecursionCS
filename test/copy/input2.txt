@@ -1,0 +1,3 @@
+Hello Copy World!
+
+Test Copy 2 line text file!
