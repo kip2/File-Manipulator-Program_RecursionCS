@@ -76,8 +76,13 @@ def reverse(args):
     outputpathName = args[2]
 
     if os.path.isfile(inputpathName):
+        # inputファイル読み込み
         with open(inputpathName) as f:
-            print(f.read())
+            contents = f.read()
+            writeContents = contents[::-1]
+        # outputパスにファイルを書き出す
+        with open(outputpathName, "w") as f:
+            f.write(writeContents)
     else:
         print("インプットパスにファイルが存在しません。")
     
@@ -87,7 +92,7 @@ def testCommand(args):
     コマンドのテスト用
     Usage: test
     以上のコマンドを入力すると、テスト入力待ち状態になる
-    シェルスクリプト用
+    主にシェルスクリプト用
     """
     print("******* test case **********")
     while True:
