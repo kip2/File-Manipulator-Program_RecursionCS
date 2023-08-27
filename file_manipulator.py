@@ -47,8 +47,7 @@ def inputLoop():
     
     # ｍain loop
     while True:
-        print("> ", end="")
-        userInputArgs = input().split()
+        userInputArgs = input("> ").split()
 
         # 例外処理
         if len(userInputArgs) == 0:
