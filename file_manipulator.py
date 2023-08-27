@@ -9,6 +9,9 @@ COMMANDS = {'reverse': lib.reverse,
             }
 
 def tabCompletion():
+    """
+    Tabキーによるコマンド補完
+    """
     def complete(text, state):
         for cmd in COMMANDS:
             if cmd.startswith(text):
