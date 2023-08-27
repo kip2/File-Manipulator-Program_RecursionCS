@@ -17,6 +17,8 @@ RecursionCS( https://recursionist.io )で作ったBackend Projectの課題作品
 - pwd : カレントディレクトリを表示するコマンド。
 - cd : カレントディレクトリを変更するコマンド。
 - ls : カレントディレクトリのファイルとディレクトリの一覧を表示する
+- whoami : 現在のログインユーザー名を表示
+- exit : file manipulatorを終了する。
   
 
 --- 
@@ -84,7 +86,7 @@ and more...
 
 ## 変更
 
-ver1.11: pwd, cd, lsコマンドを追加。
+ver1.11: pwd, cd, ls, whoami, exitコマンドを追加。
 
 ver 1.1 : Tabキーによるコマンド補完機能を追加。
 
