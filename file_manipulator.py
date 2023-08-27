@@ -10,6 +10,7 @@ COMMANDS = {'reverse': lib.reverse,
             'cd': lib.cd,
             'ls' : lib.ls,
             'whoami' : lib.whoami,
+            'exit' : lib.exit,
             }
 
 def tabCompletion():
@@ -59,13 +60,10 @@ def inputLoop():
         # 例外処理
         if len(userInputArgs) == 0:
             continue
-        # 終了処理
-        elif userInputArgs[0].lower() == "exit":
-            return
         # テストコード用
         elif userInputArgs[0].lower() == "test":
             testCommand(userInputArgs)
-            return 
+            lib.exit()
         # 通常処理
         else:
             evalCommand(userInputArgs)
@@ -96,14 +94,7 @@ def testCommand(args):
         else:
             evalCommand(userTestInputArgs)
 
-def epilogue():
-    """
-    終了処理
-    """
-    print("Bye!")
-
 if __name__ == "__main__":
     prologue()
     inputLoop()
-    epilogue()
 
