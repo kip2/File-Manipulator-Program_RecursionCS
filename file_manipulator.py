@@ -1,6 +1,11 @@
 import lib
 
-COMMANDS = ['reverse', 'copy', 'duplicate-contents', 'replace-string']
+#COMMANDS = ['reverse', 'copy', 'duplicate-contents', 'replace-string']
+COMMANDS = {'reverse': lib.reverse, 
+            'copy': lib.copy, 
+            'duplicate-contents': lib.duplicateContents,
+            'replace-string': lib.replaceString,
+            }
 
 def prologue():
     """
@@ -46,14 +51,7 @@ def evalCommand(args) :
     """
     # 第1引数のコマンドを評価し、コマンドを実行する
     if args[0] in COMMANDS:
-        if args[0] == "reverse":
-            print("reverse!!!")
-        if args[0] == "copy":
-            print("copy!!!")
-        if args[0] == "duplicate-contents":
-            print("duplicate-contents!!!")
-        if args[0] == "replace-string":
-            print("replace-string!!!")
+        COMMANDS[args[0]](args)
     else:
         print("そのようなコマンドは存在しません。")
 
