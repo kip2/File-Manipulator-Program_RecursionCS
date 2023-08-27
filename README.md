@@ -6,12 +6,16 @@ RecursionCS( https://recursionist.io )で作ったBackend Projectの課題作品
 
 幾つかのコマンドが打てる簡単なターミナルシェルです。
 
-用意されているコマンドは以下。
+用意されているコマンドは以下。(課題要件の範囲)
 
 - reverse : ファイルの文字列をひっくり返して、別ファイルに保存するコマンド。
 - copy : ファイルのコピーを作成し、保存するコマンド。
 - duplicate-contents : ファイルの内容をn回複製して元のファイルに統合するコマンド。
 - replace-string : ファイルの全ての文字列を置換するコマンド。
+
+以下はその後、追加したコマンドです。
+- pwd : カレントディレクトリを表示するコマンド。
+  
 
 --- 
 
@@ -65,6 +69,8 @@ inputpathにあるファイル全体の文字列を置換します。
 > replace-string inputpath needle newstring
 ```
 
+and more...
+
 --- 
 
 ## 見てほしいところ
@@ -75,6 +81,9 @@ inputpathにあるファイル全体の文字列を置換します。
 - 拡張性を高めるため、コマンドを外部ファイルにしてimportしています。また、コマンドと該当の関数を辞書に登録して管理しています。
 
 ## 変更
+
+ver1.11: pwdコマンドを追加。
+
 ver 1.1 : Tabキーによるコマンド補完機能を追加。
 
 ver 1.0 : reverse, copy, duplicate-contents, replace-stringを実装。
