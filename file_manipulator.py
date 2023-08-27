@@ -7,6 +7,7 @@ COMMANDS = {'reverse': lib.reverse,
             'duplicate-contents': lib.duplicateContents,
             'replace-string': lib.replaceString,
             'pwd': lib.pwd,
+            'cd': lib.cd,
             }
 
 def tabCompletion():
