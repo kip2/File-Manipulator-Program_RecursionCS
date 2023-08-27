@@ -76,4 +76,5 @@ inputpathにあるファイル全体の文字列を置換します。
 
 ## 変更
 ver 1.1 : Tabキーによるコマンド補完機能を追加。
+
 ver 1.0 : reverse, copy, duplicate-contents, replace-stringを実装。
