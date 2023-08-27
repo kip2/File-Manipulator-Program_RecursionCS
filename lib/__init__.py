@@ -7,3 +7,4 @@ from lib.cd import cd
 from lib.ls import ls
 from lib.whoami import whoami
 from lib.exit import exit
+from lib.cat import cat

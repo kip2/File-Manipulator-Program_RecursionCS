@@ -11,6 +11,7 @@ COMMANDS = {'reverse': lib.reverse,
             'ls' : lib.ls,
             'whoami' : lib.whoami,
             'exit' : lib.exit,
+            'cat' : lib.cat,
             }
 
 def tabCompletion():

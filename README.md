@@ -19,6 +19,7 @@ RecursionCS( https://recursionist.io )で作ったBackend Projectの課題作品
 - ls : カレントディレクトリのファイルとディレクトリの一覧を表示する
 - whoami : 現在のログインユーザー名を表示
 - exit : file manipulatorを終了する。
+- cat : ファイルの内容をシェルに表示します。
   
 
 --- 
@@ -86,7 +87,7 @@ and more...
 
 ## 変更
 
-ver1.11: pwd, cd, ls, whoami, exitコマンドを追加。
+ver1.11: pwd, cd, ls, whoami, exit, catコマンドを追加。
 
 ver 1.1 : Tabキーによるコマンド補完機能を追加。
 
