@@ -8,6 +8,7 @@ COMMANDS = {'reverse': lib.reverse,
             'replace-string': lib.replaceString,
             'pwd': lib.pwd,
             'cd': lib.cd,
+            'ls' : lib.ls,
             }
 
 def tabCompletion():
