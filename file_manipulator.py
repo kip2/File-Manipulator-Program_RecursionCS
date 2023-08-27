@@ -1,5 +1,7 @@
 import lib
 
+COMMANDS = ['reverse', 'copy', 'duplicate-contents', 'replace-string']
+
 def prologue():
     """
     file manipulatorの起動画面
@@ -43,17 +45,17 @@ def evalCommand(args) :
     インプットから得られたコマンドを処理する関数
     """
     # 第1引数のコマンドを評価し、コマンドを実行する
-    match args[0]:
-        case "reverse":
-            lib.reverse(args)
-        case "copy":
-            lib.copy(args)
-        case "duplicate-contents":
-            lib.duplicateContents(args)
-        case "replace-string":
-            lib.replaceString(args)
-        case _:
-            print("そのようなコマンドは存在しません。")
+    if args[0] in COMMANDS:
+        if args[0] == "reverse":
+            print("reverse!!!")
+        if args[0] == "copy":
+            print("copy!!!")
+        if args[0] == "duplicate-contents":
+            print("duplicate-contents!!!")
+        if args[0] == "replace-string":
+            print("replace-string!!!")
+    else:
+        print("そのようなコマンドは存在しません。")
 
 def testCommand(args):
     """
