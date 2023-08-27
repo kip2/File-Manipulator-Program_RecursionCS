@@ -1,11 +1,25 @@
 import lib
+import readline
 
-#COMMANDS = ['reverse', 'copy', 'duplicate-contents', 'replace-string']
+# 実行可能コマンド群
 COMMANDS = {'reverse': lib.reverse, 
             'copy': lib.copy, 
             'duplicate-contents': lib.duplicateContents,
             'replace-string': lib.replaceString,
             }
+
+def tabCompletion():
+    def complete(text, state):
+        for cmd in COMMANDS:
+            if cmd.startswith(text):
+                if not state:
+                    return cmd
+                else:
+                    state -= 1
+
+    readline.parse_and_bind("tab: complete")
+    readline.set_completer(complete)
+
 
 def prologue():
     """
@@ -27,6 +41,11 @@ def inputLoop():
     """
     インプットを処理する関数
     """
+
+    # tabキーによる補完機能追加
+    tabCompletion()
+    
+    # ｍain loop
     while True:
         print("> ", end="")
         userInputArgs = input().split()
