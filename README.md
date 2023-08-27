@@ -15,6 +15,7 @@ RecursionCS( https://recursionist.io )で作ったBackend Projectの課題作品
 
 以下はその後、追加したコマンドです。
 - pwd : カレントディレクトリを表示するコマンド。
+- cd : カレントディレクトリを変更するコマンド。
   
 
 --- 
@@ -82,7 +83,7 @@ and more...
 
 ## 変更
 
-ver1.11: pwdコマンドを追加。
+ver1.11: pwd, cdコマンドを追加。
 
 ver 1.1 : Tabキーによるコマンド補完機能を追加。
 
