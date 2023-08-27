@@ -9,6 +9,7 @@ COMMANDS = {'reverse': lib.reverse,
             'pwd': lib.pwd,
             'cd': lib.cd,
             'ls' : lib.ls,
+            'whoami' : lib.whoami,
             }
 
 def tabCompletion():
