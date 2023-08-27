@@ -2,6 +2,7 @@ import os
 
 def cd(args):
     """
+    カレントディレクトリを変更するコマンド
     """
     usageCode = "$ cd changeDirectoryPath"
     if len(args) < 2:
