@@ -64,7 +64,8 @@ def inputLoop():
         # テストコード用
         elif userInputArgs[0].lower() == "test":
             testCommand(userInputArgs)
-            lib.exit()
+            # テストなのでループをせずに終了する
+            COMMANDS["exit"]()
         # 通常処理
         else:
             evalCommand(userInputArgs)
