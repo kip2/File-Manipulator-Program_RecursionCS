@@ -12,6 +12,7 @@ COMMANDS = {'reverse': lib.reverse,
             'whoami' : lib.whoami,
             'exit' : lib.exit,
             'cat' : lib.cat,
+            'rm' : lib.rm,
             }
 
 def tabCompletion():
@@ -65,7 +66,7 @@ def inputLoop():
         elif userInputArgs[0].lower() == "test":
             testCommand(userInputArgs)
             # テストなのでループをせずに終了する
-            COMMANDS["exit"]()
+            COMMANDS["exit"](userInputArgs)
         # 通常処理
         else:
             evalCommand(userInputArgs)

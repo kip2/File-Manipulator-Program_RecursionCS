@@ -1,7 +1,7 @@
 import sys
 import os
 
-def exit():
+def exit(args):
     """
     file manipulatorを終了するコマンド
     """
