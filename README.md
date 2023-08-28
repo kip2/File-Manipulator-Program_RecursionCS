@@ -20,6 +20,7 @@ RecursionCS( https://recursionist.io )で作ったBackend Projectの課題作品
 - whoami : 現在のログインユーザー名を表示
 - exit : file manipulatorを終了する。
 - cat : ファイルの内容をシェルに表示します。
+- rm : ファイルを削除します。ディレクトリは削除できません。
   
 
 --- 
@@ -86,6 +87,7 @@ and more...
 - 拡張性を高めるため、コマンドを外部ファイルにしてimportしています。また、コマンドと該当の関数を辞書に登録して管理しています。
 
 ## 変更
+ver.1.12 : rmコマンドを追加。
 
 ver1.11: pwd, cd, ls, whoami, exit, catコマンドを追加。
 
