@@ -9,3 +9,4 @@ from lib.whoami import whoami
 from lib.exit import exit
 from lib.cat import cat
 from lib.rm import rm
+from lib.mkdir import mkdir

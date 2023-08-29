@@ -13,6 +13,7 @@ COMMANDS = {'reverse': lib.reverse,
             'exit' : lib.exit,
             'cat' : lib.cat,
             'rm' : lib.rm,
+            'mkdir' : lib.mkdir,
             }
 
 def tabCompletion():
