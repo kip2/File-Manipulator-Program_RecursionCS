@@ -58,19 +58,39 @@ def inputLoop():
     
     # ｍain loop
     while True:
-        userInputArgs = input("> ").split()
+        cmd_line = input("> ")
+
+        # redirect
+        if  ">" in cmd_line:
+            redirect_list = cmd_line.split(">")
+            # error処理
+            if not canRedirect(redirect_list):
+                print("redirect error")
+                continue
+            # 暫定でリスト0の値のみsplit
+            user_input_args = redirect_list[0].split()
+        else:
+            user_input_args = cmd_line.split()
 
         # 例外処理
-        if len(userInputArgs) == 0:
+        if len(user_input_args) == 0:
             continue
         # テストコード用
-        elif userInputArgs[0].lower() == "test":
-            testCommand(userInputArgs)
+        elif user_input_args[0].lower() == "test":
+            testCommand(user_input_args)
             # テストなのでループをせずに終了する
-            COMMANDS["exit"](userInputArgs)
+            COMMANDS["exit"](user_input_args)
         # 通常処理
         else:
-            evalCommand(userInputArgs)
+            evalCommand(user_input_args)
+
+def canRedirect(redirect_list):
+    # 何も記述がないならerror
+    if redirect_list[1].replace(" ", "") == "":
+        return False
+
+    # todo: 2と1とが出力先としている
+    return True
         
 def evalCommand(args) :
     """
